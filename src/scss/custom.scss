@@ -1,43 +1,21 @@
-$grid-breakpoints: (
-    xs: 0,
-    sm: 576px,
-    md: 768px,
-    lg: 992px,
-    xl: 1200px,
-    xxl: 1400px
-);
-
 $shaddow-bright: 2px 2px 3px rgba(255, 255, 255, 0.5);
 $shaddow-dark: 2px 2px 2px rgba(0, 0, 0, 0.5);
-
-
-@mixin media-breakpoint-up($breakpoint) {
-    @media (min-width: map-get($grid-breakpoints, $breakpoint)) {
-      @content;
-    }
-  }
+$primary-color: rgb(254, 92, 254);
+$seconary-color: rgb(255, 18, 255);
 
 body {
     margin: 0;
     font-family: 'Arial', sans-serif;
 }
 
-
-footer{
+footer {
     background-color: rgb(204, 202, 202);
 }
 
 .header-text {
     color: rgb(0, 0, 0);
     text-shadow: $shaddow-bright;
-
     font-family: 'Georgia', serif;
-
-
-    @media (max-width:320px) {
-        font-size: 22px;
-    }
-
 }
 
 .header-image {
@@ -46,26 +24,11 @@ footer{
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 100% 80%;
-
 }
 
-
-
-
-    .nav-link {
-        color: black;
-        @include media-breakpoint-up(sm) {
-
-        
-        text-shadow: $shaddow-bright;
-        }
-        @include media-breakpoint-up(xl) {
-
-            font-size: 20px;
-        }
-    }
-
-
+.nav-link {
+    color: black;
+}
 
 .nav-link:hover {
     color: rgb(37, 37, 37);
@@ -73,53 +36,22 @@ footer{
 }
 
 
-.navbar-card {
-    @media (max-width: 767px) {
-        position: absolute;
-        top: 80%;
-        left: 75%;
-        background: url("../../image/nav-bg-1.JPG");
-        background-position: 100% 70%;
-        background-size: 200%;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-        border-radius: 8px;
-        width: 20%;
-        padding: 0px 10px;
-.nav-link{
-    color: white;
-    text-shadow:$shaddow-dark;
-}
-.nav-link:hover {
-    text-shadow: $shaddow-bright;
-}
-        @media (max-width: 480px) {
-            font-size: 15px;
-            background-position: 100% 65%;
-        }
+    .nav-link {
+        color: rgb(0, 0, 0);
+        text-shadow: $shaddow-bright;
     }
 
-    @media (max-width: 380px) {
-        font-size: 14px;
-        width: 25%;
+    .nav-link:hover {
+        text-shadow: $shaddow-bright;
     }
-}
-.navbar-toggler-icon{ 
-    @media (max-width: 350px) {
-        
-    
-    width: 15px;
-height: 20px;}
-}
 
 .profile-img {
     width: 50%;
 }
 
 .profile-btn {
-    @media (max-width:767px) {
-        font-size: 11px;
-        padding: 3px;
-    }
+    font-size: 11px;
+    padding: 3px;
 }
 
 .profile-hero {
@@ -127,76 +59,52 @@ height: 20px;}
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 100% 60%;
-
 }
 
 .text-small {
-    @media (max-width:500px) {
-        font-size: 15px;
-    }
+    font-size: 15px;
 }
-
-
-
-
 
 .score-text {
-    @media (max-width: 767px) {
-        font-size: 13px;
-    }
+    font-size: 13px;
 }
 
-
-
-// feed
-
-.form-group{
-    @include media-breakpoint-up(xs) {
-    font-size: 0.8rem;
-    }
-    @include media-breakpoint-up(md) {
-        font-size: 1rem;
-    }
+.form-group {
+    font-size: 1rem;
 }
-.sortOptions{
-    
-}
-
-
-// login
 
 .login-img {
-    @include media-breakpoint-up(xs) {
     background-image: url(../../image/nav-bg-1.JPG);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 100% 10%;
-    }
-    @include media-breakpoint-up(lg){
-    
-      background-image: none;
-
-    }
 }
 
-.login-img2{
-    display: none;
-    background-image: url(../../image/nav-bg-2.JPG);
-    background-size:280%;
-    background-repeat: no-repeat;
-    background-position: 50% 100%;
 
-    
 
-    p, h2{
-        color: rgb(255, 255, 255);
-        text-shadow: $shaddow-dark;
-       
-    }
- 
-    @include media-breakpoint-up(lg){
-    
-        display: block;
-  
-      }
+
+.btn {
+    background-color: $primary-color;
+    border-color: $seconary-color; 
+    color: black;
+}
+
+.card {
+    box-shadow: $shaddow-dark; 
+    border: 2px solid #ccc; 
+}
+
+.navbar {
+    background-color: #333; 
+    color: #fff;
+}
+
+.form-control {
+    border-color: #ff00ff; 
+    border-radius: 10px; 
+}
+
+.alert {
+    background-color: #f0f0f0;
+    color: #333; 
 }
