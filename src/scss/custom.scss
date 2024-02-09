@@ -1,7 +1,7 @@
 $shaddow-bright: 2px 2px 3px rgba(255, 255, 255, 0.5);
 $shaddow-dark: 2px 2px 2px rgba(0, 0, 0, 0.5);
-$primary-color: rgb(254, 92, 254);
-$seconary-color: rgb(255, 18, 255);
+$primary-color: rgb(0, 187, 255);
+$seconary-color: rgb(94, 212, 255);
 
 body {
     margin: 0;
@@ -13,7 +13,7 @@ footer {
 }
 
 .header-text {
-    color: rgb(0, 0, 0);
+    color: black;
     text-shadow: $shaddow-bright;
     font-family: 'Georgia', serif;
 }
@@ -26,24 +26,6 @@ footer {
     background-position: 100% 80%;
 }
 
-.nav-link {
-    color: black;
-}
-
-.nav-link:hover {
-    color: rgb(37, 37, 37);
-    text-shadow: $shaddow-bright;
-}
-
-
-    .nav-link {
-        color: rgb(0, 0, 0);
-        text-shadow: $shaddow-bright;
-    }
-
-    .nav-link:hover {
-        text-shadow: $shaddow-bright;
-    }
 
 .profile-img {
     width: 50%;
@@ -88,23 +70,37 @@ footer {
     border-color: $seconary-color; 
     color: black;
 }
+.btn:hover{
+    background-color: $seconary-color;
+    border-color: $primary-color;;
+    
+}
+.btn-link:hover{
+    color: white;
+}
+
+
 
 .card {
     box-shadow: $shaddow-dark; 
     border: 2px solid #ccc; 
 }
 
-.navbar {
-    background-color: #333; 
-    color: #fff;
+
+
+.nav-link {
+    color: black;
+}
+
+.nav-link:hover {
+    color: rgb(37, 37, 37);
+    text-shadow: $shaddow-bright;
 }
 
 .form-control {
-    border-color: #ff00ff; 
+    border-color: $primary-color; 
     border-radius: 10px; 
 }
 
-.alert {
-    background-color: #f0f0f0;
-    color: #333; 
-}
+
+
