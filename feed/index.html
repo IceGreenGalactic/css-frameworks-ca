@@ -28,9 +28,9 @@
                     <span class="navbar-toggler-icon "></span>
                 </button>
 
-                <div class="collapse navbar-collapse justify-content-md-start text-nowrap z-1" id="navbarNav">
-                    <ul class="navbar-card ms-auto navbar-nav text-start ">
-                        <li class="nav-item  z-1">
+                <div class="collapse navbar-collapse text-nowrap z-1 " id="navbarNav">
+                    <ul class="navbar-card ms-auto navbar-nav text-end ">
+                        <li class="nav-item z-1">
                             <a class="nav-link fs-md-5" href="../feed/index.html">Feed</a>
                         </li>
                         <li class="nav-item z-1">
@@ -78,7 +78,7 @@
             </div>
 
             <div class="container mt-5 justify-content-center m-auto col-12 col-lg-8">
-                <div class="row">
+                <div class="row card-body">
                     <div class=" m-auto ">
                         <!-- Post 1 -->
                         <div class="card-body mb-3">
@@ -208,9 +208,9 @@
                         </div>
                     </div>
                     <!-- new post -->
-                    <div class="container mt-5">
-                        <div class="row">
-                            <div class="">
+                    <div class="container mt-5 ">
+                        <div class="row card-body ">
+                            <div>
 
                                 <div class="card-body mb-3">
                                     <div class="row g-0">
@@ -246,7 +246,7 @@
                                                         <img src="../image/ProfileImg  (5).JPG" class="img-thumbnail"
                                                             alt="image of a animated person">
                                                     </div>
-                                                    <div class="col-10">
+                                                    <div class="col-10 ">
                                                         <p class="font-weight-bold mb-0 ms-2">Terron Lassor</p>
                                                         <p class="small text-muted ms-3">January 19- 21:42</p>
                                                         <p class=" mb-2">
@@ -264,6 +264,7 @@
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <!-- answer -->
                                             <div class="card-body bg-white m-2">
                                                 <div class="row g-0">
@@ -332,38 +333,38 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- New Post Form -->
+        <div class="container col-12 col-sm-8  ">
+            <div class="card my-3  ">
+                <div class="card-body">
+                    <h5 class="card-title">Create a New Post</h5>
+                    <form>
 
-            <!-- New Post Form -->
-            <div class="container col-12 col-sm-10 ">
-                <div class="card my-3  ">
-                    <div class="card-body">
-                        <h5 class="card-title">Create a New Post</h5>
-                        <form>
+                        <label for="postContent">Post Content:</label>
+                        <div class="row g-0 d-flex">
+                            <div class="d-flex col-9">
+                                <div class="col-3">
+                                    <img src="../image/userIMG1.JPG" class="card-img"
+                                        alt="a drawn monkey in front of a colorful background">
+                                </div>
 
-                            <label for="postContent">Post Content:</label>
-                            <div class="row g-0 d-flex">
-                                <div class="d-flex col-9">
-                                    <div class="col-3">
-                                        <img src="../image/userIMG1.JPG" class="card-img"
-                                            alt="a drawn monkey in front of a colorful background">
-                                    </div>
-
-                                    <textarea class="form-control col-8" id="postContent" rows="3"
-                                        placeholder="What's on your mind?"></textarea>
-                                </div>
-                                <div class="form-group ms-2 mt-2">
-                                    <label for="postImage">Upload Image:</label>
-                                    <input type="file" class="form-control-file col-8" id="postImage">
-                                </div>
-                                <div class="d-flex">
-                                    <button type="submit" class="btn btn-primary btn-sm col-2  mt-2">Post</button>
-                                </div>
+                                <textarea class="form-control col-8" id="postContent" rows="3"
+                                    placeholder="What's on your mind?"></textarea>
                             </div>
-                    </div>
-                    </form>
-
+                            <div class="form-group ms-2 mt-2">
+                                <label for="postImage">Upload Image:</label>
+                                <input type="file" class="form-control-file col-8" id="postImage">
+                            </div>
+                            <div class="d-flex">
+                                <button type="submit" class="btn btn-primary btn-sm col-2  mt-2">Post</button>
+                            </div>
+                        </div>
                 </div>
+                </form>
+
             </div>
+        </div>
         </div>
     </main>
 
