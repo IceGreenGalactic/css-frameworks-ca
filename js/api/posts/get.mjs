@@ -2,7 +2,7 @@ import { API_SOCIAL_URL } from "../api_constants.mjs";
 import { authFetch } from "../authFetch.mjs";
 import { showMessage } from "../../utils/messages.mjs";
 import { load } from "../../storage/index.mjs";
-
+import { showLoader, hideLoader } from "../../utils/loader.mjs";
 
 const POST_ACTION = "/posts";
 const PROFILE_ACTION = "/profiles/";
@@ -14,6 +14,7 @@ const QUERY_PARAMS = "_author=true&_comments=true";
  */
 
 export async function getPosts() {
+  showLoader();
   const getPostURL = `${API_SOCIAL_URL}${POST_ACTION}?${QUERY_PARAMS}`;
 
   try {
@@ -21,6 +22,7 @@ export async function getPosts() {
     if (!response.ok) {
       throw new Error(`Failed to fetch posts: ${response.status}`);
     }
+    hideLoader();
     return await response.json();
   } catch (error) {
     console.error("Error fetching posts:", error);
@@ -40,6 +42,7 @@ export async function getPostById(id) {
   if (!id) {
     throw new Error("Get requires a postID");
   }
+  showLoader();
   const getPostByIdURL = `${API_SOCIAL_URL}${POST_ACTION}/${id}?${QUERY_PARAMS}`
 
   try {
@@ -47,6 +50,7 @@ export async function getPostById(id) {
     if (!response.ok) {
       throw new Error(`Failed to fetch post: ${response.status}`);
     }
+    hideLoader();
     return await response.json();
   } catch (error) {
     console.error("Error fetching post by ID:", error);
@@ -62,6 +66,7 @@ export async function getPostById(id) {
  * @throws {Error} If fetching posts fails.
  */
 export async function getUserProfilePosts() {
+  showLoader();
   const userProfile = load("profile");
   const userName = userProfile.name;
   const getUserPostsURL = `${API_SOCIAL_URL}${PROFILE_ACTION}${userName}${POST_ACTION}?${QUERY_PARAMS}`;
@@ -70,6 +75,7 @@ export async function getUserProfilePosts() {
     if (!response.ok) {
       throw new Error(`Failed to fetch user's posts: ${response.status}`);
     }
+    hideLoader();
     return await response.json();
     
   } catch (error) {

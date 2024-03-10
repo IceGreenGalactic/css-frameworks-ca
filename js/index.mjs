@@ -3,7 +3,6 @@ import * as listeners from "./handlers/index.mjs";
 import { handleLogout } from "./handlers/index.mjs";
 import { router } from "./router.mjs";
 
-
 if (document.readyState === "loading") {
   document.addEventListener(
     "DOMContentLoaded",
@@ -26,10 +25,3 @@ document.addEventListener("DOMContentLoaded", async () => {
     logoutLink.addEventListener("click", handleLogout);
   }
 });
-
-
-function main () {
-  const queryParams = new URLSearchParams(window.location.search);
-  console.log ("has id;", queryParams)
-}
-main()

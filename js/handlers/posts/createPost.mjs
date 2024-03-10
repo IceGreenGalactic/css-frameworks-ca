@@ -1,5 +1,6 @@
 import { createPost } from "../../api/posts/index.mjs";
 import { showMessage } from "../../utils/messages.mjs";
+import { displayPosts, displayUserPosts } from "../index.mjs";
 
 export function setCreatePostListener() {
   const form = document.querySelector("#newPostForm");
@@ -31,10 +32,14 @@ export function setCreatePostListener() {
           createPostModal.hide();
           form.reset();
           showMessage("Post created successfully!", "success");
+      
+          if (document.querySelector("#userPosts")) {
+            displayUserPosts();
+          } else {
+            displayPosts();
+          }
 
-          setTimeout(() => {
-            window.location.reload();
-          }, 2000);
+      
         })
         .catch((error) => {
           console.error("Error creating post:", error);

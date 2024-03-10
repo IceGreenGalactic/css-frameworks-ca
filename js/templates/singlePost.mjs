@@ -16,6 +16,7 @@ export function createSinglePostElement(postData) {
     media.src = postData.media;
     media.alt = "Post Media";
     media.classList.add("img-fluid");
+    media.style.maxHeight = "50vh";
 
     const body = document.createElement("p");
     body.classList.add("card-text", "text-center");

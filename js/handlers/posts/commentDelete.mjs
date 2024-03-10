@@ -1,8 +1,6 @@
 import { deleteComment } from "../../api/posts/deleteComment.mjs";
-import {
-  storeScrollPosition,
-  restoreScrollPosition,
-} from "../../utils/scrollPosition.mjs";
+
+import { displayPosts, displayUserPosts } from "../index.mjs";
 
 /**
  * Handles the click event when a user clicks on the "Delete Comment" button.
@@ -12,8 +10,6 @@ import {
  */
 export async function handleDeleteCommentButtonClick(event, postId, commentId) {
   event.preventDefault();
-
-  storeScrollPosition();
 
   const deleteCommentModal = new bootstrap.Modal(
     document.getElementById("deleteCommentModal")
@@ -27,8 +23,12 @@ export async function handleDeleteCommentButtonClick(event, postId, commentId) {
     try {
       await deleteComment(postId, commentId);
       deleteCommentModal.hide();
-      restoreScrollPosition();
-      window.location.reload();
+
+      if (document.querySelector("#userPosts")) {
+        displayUserPosts();
+      } else {
+        displayPosts();
+      }
     } catch (error) {
       console.error(`Error deleting comment ${commentId}:`, error);
     }

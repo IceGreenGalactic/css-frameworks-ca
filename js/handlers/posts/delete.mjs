@@ -2,6 +2,7 @@ import { getPostById } from "../../api/posts/get.mjs";
 import { removePost } from "../../api/posts/delete.mjs";
 import { showMessage } from "../../utils/messages.mjs";
 import { createSinglePostElement } from "../../templates/index.mjs";
+import { displayPosts, displayUserPosts } from "../index.mjs";
 
 export async function handleDeleteButtonClick(event, postId) {
   event.preventDefault();
@@ -18,8 +19,8 @@ export async function handleDeleteButtonClick(event, postId) {
     modalContent.innerHTML = "";
 
     const deletePostElement = createSinglePostElement(postData);
-    modalContent.appendChild(deletePostElement);
 
+    modalContent.appendChild(deletePostElement);
     // Event listener to the confirm delete button
     const confirmDeleteButton = document.getElementById("confirmDeleteButton");
     confirmDeleteButton.addEventListener("click", async () => {
@@ -29,9 +30,14 @@ export async function handleDeleteButtonClick(event, postId) {
         deletePostModal.hide();
 
         showMessage("Post deleted successfully!", "success");
-        setTimeout(() => {
-          window.location.reload();
-        }, 2000);
+   
+        
+        if (document.querySelector("#userPosts")) {
+          displayUserPosts();
+        } else {
+          displayPosts();
+        }
+        
       } catch (error) {
         const errorMessage = "Could not delete post:" + error.message;
 

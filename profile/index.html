@@ -10,7 +10,7 @@
   <link rel="stylesheet" href="../dist/css/styles.css">
   <script src="/js/index.mjs" defer type="module"></script>
   <script src="/dist/bootstrap.bundle.min.js"></script>
-  <title>Profile</title>
+  <title>Profile - ArtConnect</title>
 </head>
 
 <body class="m-0 d-flex flex-column min-vh-100">
@@ -98,10 +98,12 @@
 
                   <div class="col-12 text-center mb-sm-3  ">
                     <p class="bio replace-username ">
-                      <p class=" replace-username mb-2">Hey there! I'm user name,</p> <p class="mb-0 text-decoration-underline">About me</p> Nunc dapibus, orci iaculis consequat fringilla, magna mi suscipit dolor,
-                      at molestie velit nibh a enim. Fusce maximus at ex eu convallis. Donec convallis gravida erat, ut
-                      eleifend sem faucibus a. Nunc ac arcu a nunc elementum finibus. Vivamus dolor ligula, pellentesque
-                      id nulla sed, auctor tempor dolor. Cras euismod nisi mi!!
+                    <p class=" replace-username mb-2">Hey there! I'm user name,</p>
+                    <p class="mb-0 text-decoration-underline">About me</p> Nunc dapibus, orci iaculis consequat
+                    fringilla, magna mi suscipit dolor,
+                    at molestie velit nibh a enim. Fusce maximus at ex eu convallis. Donec convallis gravida erat, ut
+                    eleifend sem faucibus a. Nunc ac arcu a nunc elementum finibus. Vivamus dolor ligula, pellentesque
+                    id nulla sed, auctor tempor dolor. Cras euismod nisi mi!!
                     </p>
                   </div>
                 </div>
@@ -112,8 +114,9 @@
               <div class="d-flex justify-content-between align-items-center  ms-4">
                 <p class="lead fw-normal mb-0">Recent Art</p>
               </div>
-              <div class="row g-2 col-12 card-body">
+              <div class="row g-2 col-12 card-body" id="userPostImages">
                 <div class="col mb-2">
+
                   <img src="../image/lion_039.JPG" alt="colorfull lion image" class="w-100 rounded-3">
                 </div>
                 <div class="col mb-2">
@@ -129,10 +132,10 @@
                 <div class="col">
                   <img src="../image/IMG_0200.JPG" alt="colorfull lines" class="w-100 rounded-3">
                 </div>
-                <p class="text-center"><a href="#!" class="text-muted">Show all (239)</a></p>
               </div>
+              <button class="text-center text-muted btn-link" type="submit" id="showAllImagesLink">Show all</a></button>
+              <div class="row g-2 col-12 card-body" id="allProfileImages"></div>
 
-           
               <!-- New Post form -->
               <div class="card-body ">
                 <div class="row g-0 mb-5">
@@ -152,10 +155,11 @@
                 </div>
               </div>
               <!-- post from api -->
-                 <!-- recent posts -->
-                 <p class=" fw-normal mb-0  card-body">Recent Posts</p>
+              <!-- recent posts -->
+              <p class=" fw-normal mb-0  card-body">Recent Posts</p>
               <div class="card-body  border-top mb-3" id="userPosts"> </div>
-              <div id="noPostsMessage" class="card-body text-center border-top" style="display: none;">No posts created yet</div>
+              <div id="noPostsMessage" class="card-body text-center border-top" style="display: none;">No posts created
+                yet</div>
               <button class="btn btn-outline-primary btn-sm m-auto" id="showMoreBtn">Show More</button>
             </div>
           </div>
@@ -208,6 +212,26 @@
         </div>
       </div>
     </div>
+
+    <!-- View Image Modal -->
+    <div class="modal fade" id="viewImageModal" tabindex="-1" aria-labelledby="viewImageModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="viewImageModalLabel">View Image</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body text-center">
+            <div class="image-modal-body">
+              <!-- Image will be displayed here -->
+              <img id="imagePreview" class="img-fluid" alt="Preview">
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
 
     <!-- Edit Post Modal -->
     <div class="modal fade" id="editPostModal" tabindex="-1" aria-labelledby="editPostModalLabel" aria-hidden="true">

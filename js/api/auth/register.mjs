@@ -34,7 +34,7 @@ export async function register(profile) {
         "success"
       );
       setTimeout(() => {
-        window.location.href = "/profile/login/index.html";
+        window.location.href = "/profile/login/";
       }, 3000);
     } else {
       const errorMessage =
@@ -50,7 +50,7 @@ export async function register(profile) {
         (errorMessage === "Profile already exists. Please login", "warning")
       ) {
         setTimeout(() => {
-          window.location.href = "/profile/login/index.html";
+          window.location.href = "/profile/login/";
         }, 3000);
       }
     }

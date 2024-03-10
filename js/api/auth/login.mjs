@@ -32,7 +32,13 @@ export async function login(profile) {
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to login: ${response.status}`);
+      if (response.status === 401) {
+        const error = new Error("Wrong password or email");
+        error.type = "warning";
+        throw error;
+      } else {
+        throw new Error(`Failed to login: ${response.status}`);
+      }
     }
 
     const { accessToken, ...user } = await response.json();
@@ -42,14 +48,15 @@ export async function login(profile) {
 
     if (accessToken) {
       setTimeout(() => {
-        window.location.href = "../../../profile/index.html";
+        window.location.href = "../../../profile/";
       }, 2000);
     } else {
       throw new Error("No access token provided, please register");
     }
   } catch (error) {
     console.error("Error logging in:", error);
-    showMessage("Failed to login. Please try again later.", "error");
+    const errorMessage = `Failed to login: ${error.message}`; 
+    showMessage(errorMessage, error.type || "error"); // Set the default type to "error"
     throw error;
   } finally {
     hideLoader(); 
