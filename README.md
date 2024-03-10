@@ -4,12 +4,9 @@ A socialmedia app for people to share their art
 
 ![image](./image/Screenshot-ArtConnect.png)
 
-
-
 ## Description
 
 css-frameworks-ca is a project aimed at learning JavaScript Bootstrap and SASS, while creating a social media app where people can share pictures of art and receive feedback. The project includes:
-
 
 - Functional register and login page (if you have a noroff account),with authentication, HTML form validation.
 - Profile page displaying your recent posts and images.
@@ -50,9 +47,11 @@ npm install bootstrap@5.3.2
 ```bash
 npm install-D live-server
 ```
+
 ```bash
 npm install -D copyfiles
 ```
+
 ### Running
 
 To run the app, run the following commands:
@@ -61,9 +60,10 @@ To run the app, run the following commands:
 npm run dev
 ```
 
+## Trello
+
+- https://trello.com/b/EkvBm8Cm/js2
 ## Contact
 
 [My LinkedIn page](https://www.linkedin.com/in/kristine-tyrholm-7902172a4)
 [My Portforlio](https://kristine-tyrholm.netlify.app/)
-
-
