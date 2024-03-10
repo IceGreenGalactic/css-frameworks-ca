@@ -1,10 +1,7 @@
 import { addComment } from "../../api/posts/comment.mjs";
 import { subject } from "../observers/commonObservers.mjs";
 import { showMessage } from "../../utils/messages.mjs";
-import {
-  storeScrollPosition,
-  restoreScrollPosition,
-} from "../../utils/scrollPosition.mjs";
+import { displayPosts, displayUserPosts } from "../index.mjs";
 
 /**
  * Opens the comment modal.
@@ -24,12 +21,12 @@ function openCommentModal() {
 export function handleCommentButtonClick(event, postId) {
   try {
     openCommentModal();
-    storeScrollPosition();
     // Get the submit button outside the event listener
     const submitCommentBtn = document.getElementById("submitCommentBtn");
 
     // Define the event listener function
     async function submitCommentHandler() {
+      event.preventDefault();
       const commentText = document.getElementById("commentText").value;
       if (commentText.trim() === "") {
         showMessage("Please enter a comment.", "error");
@@ -42,7 +39,12 @@ export function handleCommentButtonClick(event, postId) {
         subject.notify(postId);
         showMessage("Comment added successfully.", "success");
         document.getElementById("commentText").value = "";
-        restoreScrollPosition();
+       
+          if (document.querySelector("#userPosts")) {
+            displayUserPosts();
+          } else {
+            displayPosts();
+          }
       } catch (error) {
         console.error("Error adding comment:", error);
         showMessage(

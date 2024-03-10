@@ -36,7 +36,8 @@ export async function updatePost(title, body, media, id) {
     });
 
     if (!response.ok) {
-      throw new Error("Failed to update post: ${response.status}");
+      throw new Error(`Failed to update post: ${response.status}`);
+
     }
 
     return await response.json();
