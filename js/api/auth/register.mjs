@@ -2,7 +2,6 @@ import { registerURL } from "../api_constants.mjs";
 import { showMessage } from "../../utils/messages.mjs";
 import { showLoader, hideLoader } from "../../utils/loader.mjs";
 
-
 /**
  * Registers a new user profile.
  * @param {Object} profile - The profile information to register.

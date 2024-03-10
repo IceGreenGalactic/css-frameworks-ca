@@ -43,7 +43,7 @@ export async function getPostById(id) {
     throw new Error("Get requires a postID");
   }
   showLoader();
-  const getPostByIdURL = `${API_SOCIAL_URL}${POST_ACTION}/${id}?${QUERY_PARAMS}`
+  const getPostByIdURL = `${API_SOCIAL_URL}${POST_ACTION}/${id}?${QUERY_PARAMS}`;
 
   try {
     const response = await authFetch(getPostByIdURL);
@@ -77,7 +77,6 @@ export async function getUserProfilePosts() {
     }
     hideLoader();
     return await response.json();
-    
   } catch (error) {
     console.error("Error fetching user's posts:", error);
     showMessage(

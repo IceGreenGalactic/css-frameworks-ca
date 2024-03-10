@@ -57,7 +57,7 @@ export async function displayUserPosts() {
     });
 
     // If the current user has no posts, display the message
-    if (!userPosts || userPosts.length === 0)  {
+    if (!userPosts || userPosts.length === 0) {
       container.style.display = "none";
       noPostsMessage.style.display = "block";
     } else {
@@ -68,8 +68,7 @@ export async function displayUserPosts() {
     // Display user's posts in the container
     let displayedCount = 0;
     userPosts.forEach((postData) => {
-      if (
-        displayedCount < displayedUserPostsCount + postLimit){
+      if (displayedCount < displayedUserPostsCount + postLimit) {
         renderPostTemplate(postData, container);
         displayedCount++;
       }
@@ -96,8 +95,6 @@ export async function displayUserPosts() {
 // Function to append more user posts when "Show More" button is clicked
 function appendMoreUserPosts(container, currentUserEmail) {
   let additionalPostsCount = 0;
-
-
 
   for (
     let i = displayedUserPostsCount;
