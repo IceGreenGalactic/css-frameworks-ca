@@ -8,7 +8,7 @@ export async function handleLikeButtonClick(event, postId, symbol) {
 
     subject.notify(postId);
   } catch (error) {
-    console.error("Error liking post:"+ error.message, error);
+    console.error("Error liking post:" + error.message, error);
     showMessage(
       "An unexpected error occurred. Please try again later.",
       "error",

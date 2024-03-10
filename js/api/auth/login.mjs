@@ -5,7 +5,7 @@ import { showLoader, hideLoader } from "../../utils/loader.mjs";
 
 /**
  * Logs in the user with the provided profile.
- * 
+ *
  * @param {Object} profile The user profile containing login credentials.
  * @param {string} profile.username The username of the user.
  * @param {string} profile.password The password of the user.
@@ -32,7 +32,13 @@ export async function login(profile) {
     });
 
     if (!response.ok) {
-      throw new Error(`Failed to login: ${response.status}`);
+      if (response.status === 401) {
+        const error = new Error("Wrong password or email");
+        error.type = "warning";
+        throw error;
+      } else {
+        throw new Error(`Failed to login: ${response.status}`);
+      }
     }
 
     const { accessToken, ...user } = await response.json();
@@ -49,9 +55,10 @@ export async function login(profile) {
     }
   } catch (error) {
     console.error("Error logging in:", error);
-    showMessage("Failed to login. Please try again later.", "error");
+    const errorMessage = `Failed to login: ${error.message}`;
+    showMessage(errorMessage, error.type || "error"); // Set the default type to "error"
     throw error;
   } finally {
-    hideLoader(); 
+    hideLoader();
   }
 }

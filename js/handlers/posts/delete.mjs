@@ -2,6 +2,10 @@ import { getPostById } from "../../api/posts/get.mjs";
 import { removePost } from "../../api/posts/delete.mjs";
 import { showMessage } from "../../utils/messages.mjs";
 import { createSinglePostElement } from "../../templates/index.mjs";
+import {
+  restoreScrollPosition,
+  storeScrollPosition,
+} from "../../utils/scrollPosition.mjs";
 
 export async function handleDeleteButtonClick(event, postId) {
   event.preventDefault();
@@ -18,12 +22,13 @@ export async function handleDeleteButtonClick(event, postId) {
     modalContent.innerHTML = "";
 
     const deletePostElement = createSinglePostElement(postData);
-    modalContent.appendChild(deletePostElement);
 
+    modalContent.appendChild(deletePostElement);
     // Event listener to the confirm delete button
     const confirmDeleteButton = document.getElementById("confirmDeleteButton");
     confirmDeleteButton.addEventListener("click", async () => {
       try {
+        storeScrollPosition();
         // Call the removePost function to delete the post
         await removePost(postId);
         deletePostModal.hide();
@@ -32,6 +37,7 @@ export async function handleDeleteButtonClick(event, postId) {
         setTimeout(() => {
           window.location.reload();
         }, 2000);
+        restoreScrollPosition();
       } catch (error) {
         const errorMessage = "Could not delete post:" + error.message;
 

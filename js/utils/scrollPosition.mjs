@@ -34,7 +34,13 @@ export function scrollToTop() {
 export function createScrollToTopButton() {
   const scrollToTopButton = document.createElement("button");
   scrollToTopButton.innerHTML = '<i class="fas fa-arrow-up"></i>';
-  scrollToTopButton.classList.add("scroll-to-top-button", "btn", "btn-info", "btn-floating", "btn-md");
+  scrollToTopButton.classList.add(
+    "scroll-to-top-button",
+    "btn",
+    "btn-info",
+    "btn-floating",
+    "btn-md"
+  );
   document.body.appendChild(scrollToTopButton);
   return scrollToTopButton;
 }
