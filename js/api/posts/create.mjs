@@ -9,10 +9,12 @@ const method = "POST";
 /**
  * Creates a new post.
  * @param {Object} postData - The data for the post to be created.
- * @returns {Promise<Object>} - A promise resolving to the created post object.
+ * @param {string} postData.title - The title of the post.
+ * @param {string} postData.body - The body content of the post.
+ * @param {string} postData.media - The media content (e.g., image URL) of the post.
+ * @returns {Promise<Object[]>} - A promise resolving to the updated list of posts.
  * @throws {Error} - Throws an error if creating the post fails.
  */
-
 export async function createPost(postData) {
   const createPostURL = API_SOCIAL_URL + action;
 
